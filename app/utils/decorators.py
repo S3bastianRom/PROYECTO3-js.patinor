@@ -29,10 +29,10 @@ def api_roles_required(*roles):
         @wraps(f)
         def decorated_function(*args, **kwargs):
             if not current_user.is_authenticated:
-                return jsonify ({"Sin sesion activa"})
+                return jsonify ({"Sin sesion activa"}),401
 
             if not any(getattr(current_user, f"es_{role}", False) for role in roles):
-                return jsonify ({"No autorizado"})
+                return jsonify ({"No autorizado"}),401
 
             return f(*args, **kwargs)
         return decorated_function
