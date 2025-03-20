@@ -106,7 +106,7 @@ def api_vender(id):
             "producto": producto.nombre.lower(),
             "estado": "sin inventario",
             "detalle": str(e)
-        }), 400
+        }), 200
     
 
 #API Ingredientes
@@ -213,4 +213,4 @@ def renovar_complementos(id):
         {
             "ingrediente": ingrediente.nombre,
             "tipo": ingrediente.tipo
-        }),400
+        }),200
